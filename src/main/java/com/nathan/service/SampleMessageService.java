@@ -27,7 +27,7 @@ public class SampleMessageService {
                 new ProducerRecord<>(kafkaProducerProperties.getTopic(), sampleMessage.getId(),
                         sampleMessage);
         try {
-            RecordMetadata recordMetadata = this.sampleMessageProducer.send(record).get();
+            RecordMetadata recordMetadata = sampleMessageProducer.send(record).get();
             LOGGER.info("topic = {}, partition = {}, offset = {}, sampleMessage = {}",
                     recordMetadata.topic(), recordMetadata.partition(), recordMetadata.offset(), sampleMessage);
             return true;

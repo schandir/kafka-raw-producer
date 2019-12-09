@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.nathan.domain.SampleMessage;
-import sample.serializer.JsonSerializer;
+import com.nathan.serializer.JsonSerializer;
 
 import java.util.Properties;
 
@@ -22,7 +22,7 @@ public class ProducerConfig {
 //        kafkaProps.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 //        kafkaProps.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
-        KafkaProducer<String, SampleMessage> producer = new KafkaProducer<>(kafkaProps, stringKeySerializer(), workUnitJsonSerializer());
+        KafkaProducer<String, SampleMessage> producer = new KafkaProducer<>(kafkaProps, stringKeySerializer(), sampleMessageJsonSerializer());
         return producer;
     }
 
@@ -32,7 +32,7 @@ public class ProducerConfig {
     }
 
     @Bean
-    public Serializer workUnitJsonSerializer() {
+    public Serializer sampleMessageJsonSerializer() {
         return new JsonSerializer();
     }
 }
