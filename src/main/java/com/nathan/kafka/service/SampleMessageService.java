@@ -1,4 +1,4 @@
-package com.nathan.service;
+package com.nathan.kafka.service;
 
 
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -8,8 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.nathan.config.KafkaProducerProperties;
-import com.nathan.domain.SampleMessage;
+import com.nathan.kafka.config.KafkaProducerProperties;
+import com.nathan.kafka.model.SampleMessage;
 
 @Service
 public class SampleMessageService {

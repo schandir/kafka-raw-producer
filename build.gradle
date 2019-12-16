@@ -1,4 +1,8 @@
-apply plugin: 'java'
+plugins {
+  id 'org.springframework.boot' version '2.2.2.RELEASE'
+  id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+  id 'java'
+}
 
 jar {
     baseName = project.name
@@ -14,13 +18,7 @@ repositories {
     }
 
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.0.2.RELEASE'
-    compile (group: 'org.apache.kafka', name: 'kafka-clients', version: '2.3.1')
-            {exclude group: 'org.slf4j', module: 'slf4j-api'}
-      
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.4'
-    compile group: 'com.google.guava', name: 'guava', version: '28.1-jre'
-
-    testCompile('org.springframework.boot:spring-boot-starter-test:2.0.2.RELEASE')
-    //compile project(":json-serializers")
+    compile (group: 'org.springframework.boot', name: 'spring-boot-starter-web')
+    compile (group: 'org.springframework.kafka', name: 'spring-kafka')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }

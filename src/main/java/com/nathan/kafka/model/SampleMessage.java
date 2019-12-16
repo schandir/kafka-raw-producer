@@ -1,8 +1,7 @@
-package com.nathan.domain;
+package com.nathan.kafka.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
 
 public class SampleMessage {
 
@@ -14,7 +13,7 @@ public class SampleMessage {
     }
     @JsonCreator
     public SampleMessage(@JsonProperty("id") String id,
-                    @JsonProperty("message") String message) {
+            @JsonProperty("message") String message) {
         this.id = id;
         this.message = message;
     }
@@ -38,9 +37,6 @@ public class SampleMessage {
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("id", id)
-                .add("message", message)
-                .toString();
+        return id + ", " + message + "!";
     }
 }
